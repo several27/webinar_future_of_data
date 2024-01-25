@@ -1,0 +1,339 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1"
+    },
+    "codeGenConfiguration" : {
+      "editableConfig" : true
+    },
+    "id" : "1",
+    "uri" : "pipelines/orders",
+    "language" : "python",
+    "fabricId" : "8875",
+    "frontEndLanguage" : "sql",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ],
+      "functionPackageName" : "maciejdemos.futureofdata.functions",
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
+    },
+    "udafs" : {
+      "language" : "python",
+      "code" : ""
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "12654",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    } ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "topLevelPackage" : "orders",
+    "configurationVersion" : "v1"
+  },
+  "connections" : [ {
+    "id" : "Ri6d6xSQtpVVIC05i4EiP$$DtJHESXXHAq-_bmAeZAyp",
+    "source" : "aZqnaTf1qXoIW1P6wOplO$$23ymYYGeXvbZq2Rrpz1XB",
+    "sourcePort" : "r5fprKFBWs6kpgSQ1IXQ0$$Wmto37LdimqtoKfZh9goq",
+    "target" : "Dl1wRnevWTtu2-zQemCMv$$cFMMqi4vkIMaj49vMPHjn",
+    "targetPort" : "CLmVDU_bq_T5TtYOauVBe$$WQG0v1_MOsEHxqgXQyWDJ"
+  }, {
+    "id" : "JMC-BSf775eaQdtk6WmWb$$eqFiVqS6VJq2zrJTH0k8Q",
+    "source" : "Dl1wRnevWTtu2-zQemCMv$$cFMMqi4vkIMaj49vMPHjn",
+    "sourcePort" : "Fssu4OMH1crs7jL83oc_T$$UYwspmHM6DB4HcPOy7mzl",
+    "target" : "iuyLv9BhW2fO1ik7dHMDX$$a2EwYsThbKMu7PHTq72vC",
+    "targetPort" : "qXpbHKm3Pqoqa5BP3giSy$$CWtXUdiZ85GIiciW0iiz0"
+  } ],
+  "processes" : {
+    "aZqnaTf1qXoIW1P6wOplO$$23ymYYGeXvbZq2Rrpz1XB" : {
+      "id" : "aZqnaTf1qXoIW1P6wOplO$$23ymYYGeXvbZq2Rrpz1XB",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "orders",
+        "slug" : "orders",
+        "x" : -200,
+        "y" : -140,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "r5fprKFBWs6kpgSQ1IXQ0$$Wmto37LdimqtoKfZh9goq",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/orders"
+      }
+    },
+    "Dl1wRnevWTtu2-zQemCMv$$cFMMqi4vkIMaj49vMPHjn" : {
+      "id" : "Dl1wRnevWTtu2-zQemCMv$$cFMMqi4vkIMaj49vMPHjn",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "reformatted_orders",
+        "slug" : "reformatted_orders",
+        "x" : 20,
+        "y" : -140,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "CLmVDU_bq_T5TtYOauVBe$$WQG0v1_MOsEHxqgXQyWDJ",
+          "slug" : "orders",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "order_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "customer_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_category",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amount",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "Fssu4OMH1crs7jL83oc_T$$UYwspmHM6DB4HcPOy7mzl",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ {
+          "target" : "order_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "order_id"
+          },
+          "description" : ""
+        }, {
+          "target" : "customer_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "customer_id"
+          },
+          "description" : ""
+        }, {
+          "target" : "order_status",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "order_status"
+          },
+          "description" : ""
+        }, {
+          "target" : "order_category",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "order_category"
+          },
+          "description" : ""
+        }, {
+          "target" : "order_date",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "order_date"
+          },
+          "description" : ""
+        }, {
+          "target" : "amount",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "floor(amount)"
+          },
+          "description" : ""
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "CLmVDU_bq_T5TtYOauVBe$$WQG0v1_MOsEHxqgXQyWDJ##order_date", "CLmVDU_bq_T5TtYOauVBe$$WQG0v1_MOsEHxqgXQyWDJ##order_category", "CLmVDU_bq_T5TtYOauVBe$$WQG0v1_MOsEHxqgXQyWDJ##order_status", "CLmVDU_bq_T5TtYOauVBe$$WQG0v1_MOsEHxqgXQyWDJ##amount", "CLmVDU_bq_T5TtYOauVBe$$WQG0v1_MOsEHxqgXQyWDJ##customer_id", "CLmVDU_bq_T5TtYOauVBe$$WQG0v1_MOsEHxqgXQyWDJ##order_id" ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=&subPath=&tag=0.1.2&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "iuyLv9BhW2fO1ik7dHMDX$$a2EwYsThbKMu7PHTq72vC" : {
+      "id" : "iuyLv9BhW2fO1ik7dHMDX$$a2EwYsThbKMu7PHTq72vC",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "orders_1",
+        "slug" : "orders_1",
+        "x" : 260,
+        "y" : -140,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "qXpbHKm3Pqoqa5BP3giSy$$CWtXUdiZ85GIiciW0iiz0",
+          "slug" : "reformatted_orders",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "order_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "customer_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_category",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amount",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/orders_1"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  }
+}

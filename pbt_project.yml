@@ -26,6 +26,34 @@ pipelines:
       - datasets/customers
     subgraphs: []
     dependencies: {}
+  pipelines/orders:
+    name: orders
+    description: ''
+    author: maciej+demo7@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-01-25 17:22:20'
+    datasets:
+      inputs:
+      - datasets/orders
+      outputs:
+      - datasets/orders_1
+    subgraphs: []
+    dependencies: {}
+  pipelines/customers_orders:
+    name: customers_orders
+    description: ''
+    author: maciej+demo7@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-01-25 17:28:02'
+    datasets:
+      inputs: []
+      outputs: []
+    subgraphs: []
+    dependencies: {}
 datasets:
   datasets/customers_raw:
     name: customers_raw
@@ -53,8 +81,59 @@ datasets:
         description: ''
         author: maciej+demo7@prophecy.io
         createdAt: '2024-01-25 15:21:08'
+  datasets/orders:
+    name: orders
+    description: ''
+    author: maciej+demo7@prophecy.io
+    createdAt: '2024-01-25 17:25:00'
+    mode: batch
+    physicalDatasets:
+      dev:
+        fabricId: 8875
+        datasetType: File
+        description: ''
+        author: maciej+demo7@prophecy.io
+        createdAt: '2024-01-25 17:25:00'
+  datasets/orders_1:
+    name: orders_1
+    description: ''
+    author: maciej+demo7@prophecy.io
+    createdAt: '2024-01-25 17:26:40'
+    mode: batch
+    physicalDatasets:
+      dev:
+        fabricId: 8875
+        datasetType: Database
+        description: ''
+        author: maciej+demo7@prophecy.io
+        createdAt: '2024-01-25 17:26:40'
 templates: {}
-jobs: {}
+jobs:
+  jobs/daily_schedule:
+    name: daily_schedule
+    description: ''
+    fabricUID: 8875
+    scheduler:
+      Databricks: {}
+    cloudProvider: null
+    jobSize: small
+    scheduleCron: 0 0 0 * * ? *
+    timeout: null
+    alerting:
+      emails: ''
+      onStart: false
+      onSuccess: false
+      onFailure: false
+    pipelines:
+    - pipelines/orders
+    - pipelines/customers
+    jobClusterMode:
+      clusterMode:
+        Single: {}
+      clusterId: null
+    enabled: null
+    createdAt: '2024-01-25 17:32:00'
+    author: maciej+demo7@prophecy.io
 gemContainer:
   languageVersion: '3.10'
   gemLibsVersion: 1.3.4.0
