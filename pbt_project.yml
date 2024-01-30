@@ -1,6 +1,6 @@
 name: future_of_data
 description: ''
-version: 0.0.1
+version: '1.0'
 author: maciej+demo7@prophecy.io
 language: python
 buildSystem: ''
