@@ -53,7 +53,8 @@ pipelines:
       inputs:
       - datasets/customers
       - datasets/orders
-      outputs: []
+      outputs:
+      - datasets/customers_orders
     subgraphs: []
     dependencies: {}
 datasets:
@@ -109,6 +110,19 @@ datasets:
         description: ''
         author: maciej+demo7@prophecy.io
         createdAt: '2024-01-30 18:40:48'
+  datasets/customers_orders:
+    name: customers_orders
+    description: ''
+    author: maciej+demo7@prophecy.io
+    createdAt: '2024-01-30 18:43:23'
+    mode: batch
+    physicalDatasets:
+      dev:
+        fabricId: 8875
+        datasetType: Database
+        description: ''
+        author: maciej+demo7@prophecy.io
+        createdAt: '2024-01-30 18:43:23'
 templates: {}
 jobs:
   jobs/daily_schedule:

@@ -14,6 +14,8 @@ def pipeline(spark: SparkSession) -> None:
     df_total_spent_by_customer = total_spent_by_customer(spark, df_customer_order_amount)
     df_by_total_spent_desc_nulls_first = by_total_spent_desc_nulls_first(spark, df_total_spent_by_customer)
     df_limit_50 = limit_50(spark, df_by_total_spent_desc_nulls_first)
+    df_limit_50_customer_details = limit_50_customer_details(spark, df_limit_50)
+    customers_orders(spark, df_limit_50_customer_details)
 
 def main():
     spark = SparkSession.builder\

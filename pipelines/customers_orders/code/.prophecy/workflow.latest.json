@@ -42,7 +42,15 @@
     "codeMode" : "sparse",
     "buildSystem" : "maven",
     "externalDependencies" : [ ],
-    "dependentProjectExternalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "12654",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    } ],
     "isImported" : false,
     "interimMode" : "Full",
     "interimModeEnabled" : true,
@@ -55,6 +63,12 @@
     "configurationVersion" : "v1"
   },
   "connections" : [ {
+    "id" : "VqMSYYaE",
+    "source" : "SrWGONBu",
+    "sourcePort" : "pIyRDYwu",
+    "target" : "yCxGDPPb",
+    "targetPort" : "xyGipBlo"
+  }, {
     "id" : "s2o12osg",
     "source" : "VHfq2g3h",
     "sourcePort" : "JbFn4VuO",
@@ -84,8 +98,173 @@
     "sourcePort" : "I1TWTSDN",
     "target" : "SrWGONBu",
     "targetPort" : "WKPfrpfC"
+  }, {
+    "id" : "thuEwmrUYIzGOmQPTT6yN$$XhjDgQJOlJCH6yBHNMGBu",
+    "source" : "yCxGDPPb",
+    "sourcePort" : "LG7pzli7",
+    "target" : "BuaaW3vNGfwqZZgRgM4KP$$eK75sbA0Mkz-2k4m1KNFY",
+    "targetPort" : "3rYq55HnvOb9zNdug7bjF$$iQR0kiUyIdgkGJrLzkd33"
   } ],
   "processes" : {
+    "yCxGDPPb" : {
+      "id" : "yCxGDPPb",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "limit_50_customer_details",
+        "slug" : "limit_50_customer_details",
+        "x" : 1020,
+        "y" : 120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "xyGipBlo",
+          "slug" : "limit_50",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "CUSTOMER_ID",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "FIRST_NAME",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "LAST_NAME",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TOTAL_SPENT",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "LG7pzli7",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ {
+          "target" : "CUSTOMER_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "CUSTOMER_ID"
+          },
+          "description" : ""
+        }, {
+          "target" : "FULL_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "CONCAT(FIRST_NAME, ' ', LAST_NAME)"
+          },
+          "description" : ""
+        }, {
+          "target" : "TOTAL_SPENT",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "TOTAL_SPENT"
+          },
+          "description" : ""
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=&subPath=&tag=0.1.2&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "BuaaW3vNGfwqZZgRgM4KP$$eK75sbA0Mkz-2k4m1KNFY" : {
+      "id" : "BuaaW3vNGfwqZZgRgM4KP$$eK75sbA0Mkz-2k4m1KNFY",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "customers_orders",
+        "slug" : "customers_orders",
+        "x" : 1220,
+        "y" : 120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "3rYq55HnvOb9zNdug7bjF$$iQR0kiUyIdgkGJrLzkd33",
+          "slug" : "limit_50_customer_details",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "CUSTOMER_ID",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "FULL_NAME",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TOTAL_SPENT",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/customers_orders"
+      }
+    },
     "x3CmEgYE" : {
       "id" : "x3CmEgYE",
       "component" : "Source",
