@@ -42,15 +42,7 @@
     "codeMode" : "sparse",
     "buildSystem" : "maven",
     "externalDependencies" : [ ],
-    "dependentProjectExternalDependencies" : [ {
-      "projectUID" : "12654",
-      "projectName" : "ProphecySparkBasicsPython",
-      "externalDependencies" : [ ]
-    }, {
-      "projectUID" : "12655",
-      "projectName" : "ProphecyWarehousePython",
-      "externalDependencies" : [ ]
-    } ],
+    "dependentProjectExternalDependencies" : [ ],
     "isImported" : false,
     "interimMode" : "Full",
     "interimModeEnabled" : true,
@@ -112,7 +104,7 @@
       "metadata" : {
         "label" : "limit_50_customer_details",
         "slug" : "limit_50_customer_details",
-        "x" : 1020,
+        "x" : 1000,
         "y" : 120,
         "phase" : 0,
         "cache" : false,
@@ -199,7 +191,7 @@
         } ],
         "importString" : "",
         "activeTab" : "expressions",
-        "columnsSelector" : [ ]
+        "columnsSelector" : [ "xyGipBlo##TOTAL_SPENT", "xyGipBlo##CUSTOMER_ID", "xyGipBlo##FIRST_NAME", "xyGipBlo##LAST_NAME" ]
       },
       "componentInfo" : {
         "gemId" : "gitUri=&subPath=&tag=0.1.2&projectSubscriptionProjectId=12654&path=gems/Reformat",
@@ -212,7 +204,7 @@
       "metadata" : {
         "label" : "customers_orders",
         "slug" : "customers_orders",
-        "x" : 1220,
+        "x" : 1200,
         "y" : 120,
         "phase" : 0,
         "cache" : false,
