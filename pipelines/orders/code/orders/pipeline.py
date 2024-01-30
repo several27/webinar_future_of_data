@@ -8,9 +8,9 @@ from prophecy.utils import *
 from orders.graph import *
 
 def pipeline(spark: SparkSession) -> None:
-    df_orders = orders(spark)
-    df_reformatted_orders = reformatted_orders(spark, df_orders)
-    orders_1(spark, df_reformatted_orders)
+    df_orders_raw = orders_raw(spark)
+    df_reformatted_orders = reformatted_orders(spark, df_orders_raw)
+    orders(spark, df_reformatted_orders)
 
 def main():
     spark = SparkSession.builder\

@@ -6,13 +6,8 @@ from prophecy.libs import typed_lit
 from orders.config.ConfigStore import *
 from orders.udfs.UDFs import *
 
-def orders(spark: SparkSession) -> DataFrame:
-    return spark.read\
-        .schema(
-          StructType([
-            StructField("order_id", StringType(), True), StructField("customer_id", StringType(), True), StructField("order_status", StringType(), True), StructField("order_category", StringType(), True), StructField("order_date", StringType(), True), StructField("amount", StringType(), True)
-        ])
-        )\
-        .option("header", True)\
-        .option("sep", ",")\
-        .csv("dbfs:/Prophecy/fe05cec3962bfa5ccc31eca58664da19/OrdersDatasetInput.csv")
+def orders(spark: SparkSession, reformatted_orders: DataFrame):
+    reformatted_orders.write\
+        .format("delta")\
+        .mode("overwrite")\
+        .saveAsTable("`main`.`default`.`webinar_customers_customers`")

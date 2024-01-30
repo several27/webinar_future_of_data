@@ -36,9 +36,9 @@ pipelines:
     createdAt: '2024-01-25 17:22:20'
     datasets:
       inputs:
-      - datasets/orders
+      - datasets/orders_raw
       outputs:
-      - datasets/orders_1
+      - datasets/orders
     subgraphs: []
     dependencies: {}
   pipelines/customers_orders:
@@ -50,7 +50,9 @@ pipelines:
     language: python
     createdAt: '2024-01-25 17:28:02'
     datasets:
-      inputs: []
+      inputs:
+      - datasets/customers
+      - datasets/orders
       outputs: []
     subgraphs: []
     dependencies: {}
@@ -81,11 +83,11 @@ datasets:
         description: ''
         author: maciej+demo7@prophecy.io
         createdAt: '2024-01-25 15:21:08'
-  datasets/orders:
-    name: orders
+  datasets/orders_raw:
+    name: orders_raw
     description: ''
     author: maciej+demo7@prophecy.io
-    createdAt: '2024-01-25 17:25:00'
+    createdAt: '2024-01-30 18:39:45'
     mode: batch
     physicalDatasets:
       dev:
@@ -93,12 +95,12 @@ datasets:
         datasetType: File
         description: ''
         author: maciej+demo7@prophecy.io
-        createdAt: '2024-01-25 17:25:00'
-  datasets/orders_1:
-    name: orders_1
+        createdAt: '2024-01-30 18:39:45'
+  datasets/orders:
+    name: orders
     description: ''
     author: maciej+demo7@prophecy.io
-    createdAt: '2024-01-25 17:26:40'
+    createdAt: '2024-01-30 18:40:48'
     mode: batch
     physicalDatasets:
       dev:
@@ -106,7 +108,7 @@ datasets:
         datasetType: Database
         description: ''
         author: maciej+demo7@prophecy.io
-        createdAt: '2024-01-25 17:26:40'
+        createdAt: '2024-01-30 18:40:48'
 templates: {}
 jobs:
   jobs/daily_schedule:

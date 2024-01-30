@@ -42,15 +42,7 @@
     "codeMode" : "sparse",
     "buildSystem" : "maven",
     "externalDependencies" : [ ],
-    "dependentProjectExternalDependencies" : [ {
-      "projectUID" : "12654",
-      "projectName" : "ProphecySparkBasicsPython",
-      "externalDependencies" : [ ]
-    }, {
-      "projectUID" : "12655",
-      "projectName" : "ProphecyWarehousePython",
-      "externalDependencies" : [ ]
-    } ],
+    "dependentProjectExternalDependencies" : [ ],
     "isImported" : false,
     "interimMode" : "Full",
     "interimModeEnabled" : true,
@@ -62,8 +54,587 @@
     "topLevelPackage" : "customers_orders",
     "configurationVersion" : "v1"
   },
-  "connections" : [ ],
-  "processes" : { },
+  "connections" : [ {
+    "id" : "s2o12osg",
+    "source" : "VHfq2g3h",
+    "sourcePort" : "JbFn4VuO",
+    "target" : "gdllGN8g",
+    "targetPort" : "zK3QB79a"
+  }, {
+    "id" : "Hx68COPF",
+    "source" : "x3CmEgYE",
+    "sourcePort" : "LllHr0o3",
+    "target" : "VHfq2g3h",
+    "targetPort" : "RlghGHIo"
+  }, {
+    "id" : "pTThOj9y",
+    "source" : "gdllGN8g",
+    "sourcePort" : "jJoUvMEA",
+    "target" : "kfFLWXYp",
+    "targetPort" : "TN4ShMCy"
+  }, {
+    "id" : "Cd1QwW2g",
+    "source" : "f3Juen4Z",
+    "sourcePort" : "ccc4pvHw",
+    "target" : "VHfq2g3h",
+    "targetPort" : "B5WnaoqO"
+  }, {
+    "id" : "saqvagc1",
+    "source" : "kfFLWXYp",
+    "sourcePort" : "I1TWTSDN",
+    "target" : "SrWGONBu",
+    "targetPort" : "WKPfrpfC"
+  } ],
+  "processes" : {
+    "x3CmEgYE" : {
+      "id" : "x3CmEgYE",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "orders",
+        "slug" : "orders",
+        "x" : 20,
+        "y" : 220,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "LllHr0o3",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/orders"
+      }
+    },
+    "VHfq2g3h" : {
+      "id" : "VHfq2g3h",
+      "component" : "Join",
+      "metadata" : {
+        "label" : "customer_order_amount",
+        "slug" : "customer_order_amount",
+        "x" : 220,
+        "y" : 120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "B5WnaoqO",
+          "slug" : "customers",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "country_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_flags",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        }, {
+          "id" : "RlghGHIo",
+          "slug" : "orders",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "order_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "customer_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_category",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amount",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "JbFn4VuO",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "conditions" : [ {
+          "alias" : "orders",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "customers.customer_id = orders.customer_id"
+          },
+          "joinType" : "inner"
+        } ],
+        "expressions" : [ {
+          "target" : "CUSTOMER_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "customers.customer_id"
+          },
+          "description" : ""
+        }, {
+          "target" : "FIRST_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "customers.first_name"
+          },
+          "description" : ""
+        }, {
+          "target" : "LAST_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "customers.last_name"
+          },
+          "description" : ""
+        }, {
+          "target" : "AMOUNT",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "orders.amount"
+          },
+          "description" : ""
+        } ],
+        "hints" : [ {
+          "id" : "in0",
+          "alias" : "in0",
+          "hintType" : "none",
+          "propagateColumns" : false
+        }, {
+          "id" : "in1",
+          "alias" : "in1",
+          "hintType" : "none",
+          "propagateColumns" : false
+        } ],
+        "allIn1" : null,
+        "activeTab" : "conditions",
+        "columnsSelector" : [ ],
+        "allIn0" : null,
+        "whereClause" : null,
+        "headAlias" : "customers"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=&subPath=&tag=0.1.2&projectSubscriptionProjectId=12654&path=gems/Join",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "gdllGN8g" : {
+      "id" : "gdllGN8g",
+      "component" : "Aggregate",
+      "metadata" : {
+        "label" : "total_spent_by_customer",
+        "slug" : "total_spent_by_customer",
+        "x" : 420,
+        "y" : 120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "zK3QB79a",
+          "slug" : "customer_order_amount",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "CUSTOMER_ID",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "FIRST_NAME",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "LAST_NAME",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "AMOUNT",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "jJoUvMEA",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "allIns" : false,
+        "doPivot" : false,
+        "aggregate" : [ {
+          "target" : "TOTAL_SPENT",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "SUM(amount)"
+          },
+          "description" : ""
+        } ],
+        "allowSelection" : true,
+        "pivotColumn" : null,
+        "pivotValues" : [ ],
+        "activeTab" : "aggregate",
+        "columnsSelector" : [ ],
+        "groupBy" : [ {
+          "target" : "CUSTOMER_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "CUSTOMER_ID"
+          },
+          "description" : ""
+        }, {
+          "target" : "FIRST_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "FIRST_NAME"
+          },
+          "description" : ""
+        }, {
+          "target" : "LAST_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "LAST_NAME"
+          },
+          "description" : ""
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=&subPath=&tag=0.1.2&projectSubscriptionProjectId=12654&path=gems/Aggregate",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "SrWGONBu" : {
+      "id" : "SrWGONBu",
+      "component" : "Limit",
+      "metadata" : {
+        "label" : "limit_50",
+        "slug" : "limit_50",
+        "x" : 820,
+        "y" : 120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "WKPfrpfC",
+          "slug" : "by_total_spent_desc_nulls_first",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "CUSTOMER_ID",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "FIRST_NAME",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "LAST_NAME",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TOTAL_SPENT",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "pIyRDYwu",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "limit" : "50"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=&subPath=&tag=0.1.2&projectSubscriptionProjectId=12654&path=gems/Limit",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "kfFLWXYp" : {
+      "id" : "kfFLWXYp",
+      "component" : "OrderBy",
+      "metadata" : {
+        "label" : "by_total_spent_desc_nulls_first",
+        "slug" : "by_total_spent_desc_nulls_first",
+        "x" : 620,
+        "y" : 120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "TN4ShMCy",
+          "slug" : "total_spent_by_customer",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "CUSTOMER_ID",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "FIRST_NAME",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "LAST_NAME",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TOTAL_SPENT",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "I1TWTSDN",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "orders" : [ {
+          "expression" : {
+            "format" : "sql",
+            "expression" : "TOTAL_SPENT"
+          },
+          "sortType" : "desc"
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=&subPath=&tag=0.1.2&projectSubscriptionProjectId=12654&path=gems/OrderBy",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "f3Juen4Z" : {
+      "id" : "f3Juen4Z",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "customers",
+        "slug" : "customers",
+        "x" : 20,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "ccc4pvHw",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/customers"
+      }
+    }
+  },
   "ports" : {
     "inputs" : [ ],
     "outputs" : [ ],

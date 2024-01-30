@@ -38,7 +38,7 @@ schema:
       mappings: []
       tags: []
   - name: amount
-    type: long
+    type: string
     nullable: true
     metadata:
       description: ''

@@ -6,8 +6,8 @@ from prophecy.libs import typed_lit
 from orders.config.ConfigStore import *
 from orders.udfs.UDFs import *
 
-def reformatted_orders(spark: SparkSession, orders: DataFrame) -> DataFrame:
-    return orders.select(
+def reformatted_orders(spark: SparkSession, in0: DataFrame) -> DataFrame:
+    return in0.select(
         col("order_id"), 
         col("customer_id"), 
         col("order_status"), 
