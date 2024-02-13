@@ -7,7 +7,7 @@
       "editableConfig" : true
     },
     "id" : "1",
-    "uri" : "pipelines/customers",
+    "uri" : "pipelines/orders",
     "language" : "python",
     "fabricId" : "8875",
     "frontEndLanguage" : "sql",
@@ -63,31 +63,31 @@
       "enabled" : false,
       "value" : 1000
     },
-    "topLevelPackage" : "customers",
+    "topLevelPackage" : "orders",
     "configurationVersion" : "v1"
   },
   "connections" : [ {
-    "id" : "ZMgMZLkKWi-tytSrpJhNM$$FT8frBpS-Xz6S9epLyowj",
-    "source" : "0f1GvwgoifBEISnKlAtMx$$2j8ZX8Vg1fqwt2b4OszgC",
-    "sourcePort" : "CIE4DZdNnMM6hUdOre7Pc$$9DktBL0KMR2wj1-licNT2",
-    "target" : "fDuOe9dUK6UTwSYk6XCzL$$ebIbr9wnPshm3L5DGr6wC",
-    "targetPort" : "LU5IgJICK7RyE87Boq36m$$Qif8U_3StALIKgnWC5Rif"
+    "id" : "Vf8OPdyMUs3CRy-IIuG23$$j1lyWZ-9GLUCuhKjqZCqX",
+    "source" : "jgyPbKDC0qFRcZ8gfdES0$$0LAVwX50iGTVyQg5E5uxX",
+    "sourcePort" : "hh2uTB4aleqt2ACnaywA1$$sdI20-NWhQOXulRh3H6ri",
+    "target" : "e_OcikpqcwQtrN82pRm4V$$PSq0LkmA7ohwgM7z1NAPu",
+    "targetPort" : "vCTg2S3LylIR2cUwx7EtW$$J818Xwy8wWExl5Mr_a25x"
   }, {
-    "id" : "EfojRG46O0jAFMNrHsD1P$$tln4X5BvMoVPiOTWOkIA6",
-    "source" : "fDuOe9dUK6UTwSYk6XCzL$$ebIbr9wnPshm3L5DGr6wC",
-    "sourcePort" : "qeuJXgKMfY-KhUXeINlBh$$KEL2YWHv1BsnP0GPHDSs4",
-    "target" : "tZ_KXn-gdEmAUa3rZdpl3$$I36K1lUuoGk4_XVZtvHsw",
-    "targetPort" : "xM2-nyomQMFtjSA3vimBE$$bbIRk6fIJ49y7AmLoeuJ3"
+    "id" : "MrR3gX7xi4JTw1_76RfB2$$FOqA3QFqgG-eogp7J57iD",
+    "source" : "e_OcikpqcwQtrN82pRm4V$$PSq0LkmA7ohwgM7z1NAPu",
+    "sourcePort" : "9QFZdqQM3fcgU1YnOndHp$$HM5qH8MYxH7_iEhOMEWUO",
+    "target" : "Pod_thray_MQG3gtLln_b$$srgvzWbtyjq0oizDjNY2J",
+    "targetPort" : "OangZ6S7ELQYX-OLz3Mrz$$7IS_6KTBBNAfHe41h80YF"
   } ],
   "processes" : {
-    "0f1GvwgoifBEISnKlAtMx$$2j8ZX8Vg1fqwt2b4OszgC" : {
-      "id" : "0f1GvwgoifBEISnKlAtMx$$2j8ZX8Vg1fqwt2b4OszgC",
+    "jgyPbKDC0qFRcZ8gfdES0$$0LAVwX50iGTVyQg5E5uxX" : {
+      "id" : "jgyPbKDC0qFRcZ8gfdES0$$0LAVwX50iGTVyQg5E5uxX",
       "component" : "Source",
       "metadata" : {
-        "label" : "customers_raw",
-        "slug" : "customers_raw",
-        "x" : -480,
-        "y" : -100,
+        "label" : "orders_raw",
+        "slug" : "orders_raw",
+        "x" : -120,
+        "y" : -60,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -96,7 +96,7 @@
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "CIE4DZdNnMM6hUdOre7Pc$$9DktBL0KMR2wj1-licNT2",
+          "id" : "hh2uTB4aleqt2ACnaywA1$$sdI20-NWhQOXulRh3H6ri",
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
@@ -104,17 +104,17 @@
         "autoUpdateOnRun" : false
       },
       "properties" : {
-        "datasetId" : "datasets/customers_raw"
+        "datasetId" : "datasets/orders_raw"
       }
     },
-    "fDuOe9dUK6UTwSYk6XCzL$$ebIbr9wnPshm3L5DGr6wC" : {
-      "id" : "fDuOe9dUK6UTwSYk6XCzL$$ebIbr9wnPshm3L5DGr6wC",
+    "e_OcikpqcwQtrN82pRm4V$$PSq0LkmA7ohwgM7z1NAPu" : {
+      "id" : "e_OcikpqcwQtrN82pRm4V$$PSq0LkmA7ohwgM7z1NAPu",
       "component" : "Reformat",
       "metadata" : {
-        "label" : "reformat_customers_data",
-        "slug" : "reformat_customers_data",
-        "x" : -300,
-        "y" : -100,
+        "label" : "reformat_order_data",
+        "slug" : "reformat_order_data",
+        "x" : 80,
+        "y" : -60,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -122,11 +122,20 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "LU5IgJICK7RyE87Boq36m$$Qif8U_3StALIKgnWC5Rif",
-          "slug" : "customers_raw",
+          "id" : "vCTg2S3LylIR2cUwx7EtW$$J818Xwy8wWExl5Mr_a25x",
+          "slug" : "in0",
           "schema" : {
             "type" : "struct",
             "fields" : [ {
+              "name" : "order_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
               "name" : "customer_id",
               "type" : "string",
               "nullable" : true,
@@ -136,7 +145,7 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "first_name",
+              "name" : "order_status",
               "type" : "string",
               "nullable" : true,
               "metadata" : {
@@ -145,7 +154,7 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "last_name",
+              "name" : "order_category",
               "type" : "string",
               "nullable" : true,
               "metadata" : {
@@ -154,7 +163,7 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "phone",
+              "name" : "order_date",
               "type" : "string",
               "nullable" : true,
               "metadata" : {
@@ -163,34 +172,7 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "email",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "country_code",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "account_open_date",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "account_flags",
+              "name" : "amount",
               "type" : "string",
               "nullable" : true,
               "metadata" : {
@@ -203,7 +185,7 @@
           "isStreaming" : false
         } ],
         "outputs" : [ {
-          "id" : "qeuJXgKMfY-KhUXeINlBh$$KEL2YWHv1BsnP0GPHDSs4",
+          "id" : "9QFZdqQM3fcgU1YnOndHp$$HM5qH8MYxH7_iEhOMEWUO",
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
@@ -213,6 +195,13 @@
       "properties" : {
         "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
         "expressions" : [ {
+          "target" : "order_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "order_id"
+          },
+          "description" : ""
+        }, {
           "target" : "customer_id",
           "expression" : {
             "format" : "sql",
@@ -220,72 +209,51 @@
           },
           "description" : ""
         }, {
-          "target" : "first_name",
+          "target" : "order_status",
           "expression" : {
             "format" : "sql",
-            "expression" : "first_name"
+            "expression" : "order_status"
           },
           "description" : ""
         }, {
-          "target" : "last_name",
+          "target" : "order_category",
           "expression" : {
             "format" : "sql",
-            "expression" : "last_name"
+            "expression" : "order_category"
           },
           "description" : ""
         }, {
-          "target" : "phone",
+          "target" : "order_date",
           "expression" : {
             "format" : "sql",
-            "expression" : "phone"
+            "expression" : "order_date"
           },
           "description" : ""
         }, {
-          "target" : "email",
+          "target" : "amount",
           "expression" : {
             "format" : "sql",
-            "expression" : "email"
-          },
-          "description" : ""
-        }, {
-          "target" : "country_code",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "country_code"
-          },
-          "description" : ""
-        }, {
-          "target" : "account_open_date",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "account_open_date"
-          },
-          "description" : ""
-        }, {
-          "target" : "account_flags",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "account_flags"
+            "expression" : "floor(amount)"
           },
           "description" : ""
         } ],
         "importString" : "",
         "activeTab" : "expressions",
-        "columnsSelector" : [ "LU5IgJICK7RyE87Boq36m$$Qif8U_3StALIKgnWC5Rif##email", "LU5IgJICK7RyE87Boq36m$$Qif8U_3StALIKgnWC5Rif##phone", "LU5IgJICK7RyE87Boq36m$$Qif8U_3StALIKgnWC5Rif##last_name", "LU5IgJICK7RyE87Boq36m$$Qif8U_3StALIKgnWC5Rif##account_open_date", "LU5IgJICK7RyE87Boq36m$$Qif8U_3StALIKgnWC5Rif##customer_id", "LU5IgJICK7RyE87Boq36m$$Qif8U_3StALIKgnWC5Rif##country_code", "LU5IgJICK7RyE87Boq36m$$Qif8U_3StALIKgnWC5Rif##account_flags", "LU5IgJICK7RyE87Boq36m$$Qif8U_3StALIKgnWC5Rif##first_name" ]
+        "columnsSelector" : [ "vCTg2S3LylIR2cUwx7EtW$$J818Xwy8wWExl5Mr_a25x##order_status", "vCTg2S3LylIR2cUwx7EtW$$J818Xwy8wWExl5Mr_a25x##customer_id", "vCTg2S3LylIR2cUwx7EtW$$J818Xwy8wWExl5Mr_a25x##amount", "vCTg2S3LylIR2cUwx7EtW$$J818Xwy8wWExl5Mr_a25x##order_category", "vCTg2S3LylIR2cUwx7EtW$$J818Xwy8wWExl5Mr_a25x##order_date", "vCTg2S3LylIR2cUwx7EtW$$J818Xwy8wWExl5Mr_a25x##order_id" ]
       },
       "componentInfo" : {
         "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.3&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
-    "tZ_KXn-gdEmAUa3rZdpl3$$I36K1lUuoGk4_XVZtvHsw" : {
-      "id" : "tZ_KXn-gdEmAUa3rZdpl3$$I36K1lUuoGk4_XVZtvHsw",
+    "Pod_thray_MQG3gtLln_b$$srgvzWbtyjq0oizDjNY2J" : {
+      "id" : "Pod_thray_MQG3gtLln_b$$srgvzWbtyjq0oizDjNY2J",
       "component" : "Target",
       "metadata" : {
-        "label" : "customers",
-        "slug" : "customers",
-        "x" : -100,
-        "y" : -100,
+        "label" : "orders",
+        "slug" : "orders",
+        "x" : 280,
+        "y" : -60,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -293,11 +261,20 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "xM2-nyomQMFtjSA3vimBE$$bbIRk6fIJ49y7AmLoeuJ3",
-          "slug" : "reformat_customers_data",
+          "id" : "OangZ6S7ELQYX-OLz3Mrz$$7IS_6KTBBNAfHe41h80YF",
+          "slug" : "reformat_order_data",
           "schema" : {
             "type" : "struct",
             "fields" : [ {
+              "name" : "order_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
               "name" : "customer_id",
               "type" : "string",
               "nullable" : true,
@@ -307,7 +284,7 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "first_name",
+              "name" : "order_status",
               "type" : "string",
               "nullable" : true,
               "metadata" : {
@@ -316,7 +293,7 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "last_name",
+              "name" : "order_category",
               "type" : "string",
               "nullable" : true,
               "metadata" : {
@@ -325,7 +302,7 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "phone",
+              "name" : "order_date",
               "type" : "string",
               "nullable" : true,
               "metadata" : {
@@ -334,35 +311,8 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "email",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "country_code",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "account_open_date",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "account_flags",
-              "type" : "string",
+              "name" : "amount",
+              "type" : "long",
               "nullable" : true,
               "metadata" : {
                 "description" : "",
@@ -379,7 +329,7 @@
         "autoUpdateOnRun" : false
       },
       "properties" : {
-        "datasetId" : "datasets/customers"
+        "datasetId" : "datasets/orders"
       }
     }
   },

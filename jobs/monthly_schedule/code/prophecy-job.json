@@ -1,0 +1,181 @@
+{
+  "metainfo" : {
+    "type" : "Databricks",
+    "fabricId" : "8875",
+    "jobId" : "jobs/monthly_schedule",
+    "name" : "monthly_schedule",
+    "schedule" : "0 0 0 1 * ? *",
+    "scheduleTimeZone" : "UTC",
+    "jobClusterMode" : {
+      "clusterMode" : "Single"
+    },
+    "enabled" : false,
+    "defaultClusterSize" : "small",
+    "alerting" : {
+      "emails" : "maciej@prophecy.io",
+      "onStart" : false,
+      "onSuccess" : false,
+      "onFailure" : false
+    },
+    "maxConcurrentRuns" : 1,
+    "processDefaultSettings" : {
+      "type" : "Inherited",
+      "retries" : 0,
+      "alerting" : {
+        "emails" : "",
+        "onStart" : false,
+        "onSuccess" : false,
+        "onFailure" : false
+      }
+    },
+    "availableFabrics" : [ {
+      "id" : "8875",
+      "name" : "dev",
+      "clusterSizes" : {
+        "default" : "small",
+        "availableClusterSizes" : [ "small" ]
+      },
+      "pylibsResolutionMode" : {
+        "PublicCentral" : { }
+      },
+      "scalalibsResolutionMode" : {
+        "PublicCentral" : { }
+      }
+    } ]
+  },
+  "processes" : {
+    "maJ4p9RTP3bZAWgFKS-Eq" : {
+      "id" : "maJ4p9RTP3bZAWgFKS-Eq",
+      "component" : "Pipeline",
+      "metadata" : {
+        "label" : "customers_orders",
+        "slug" : "customers_orders",
+        "x" : 100,
+        "y" : 100
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "in",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "out",
+          "slug" : ""
+        } ]
+      },
+      "settings" : {
+        "type" : "Inherited",
+        "alerting" : {
+          "emails" : "",
+          "onStart" : false,
+          "onSuccess" : false,
+          "onFailure" : false
+        }
+      },
+      "properties" : {
+        "pipelineId" : "pipelines/customers_orders",
+        "configurations" : {
+          "schema" : [ ],
+          "instances" : {
+            "future_of_data" : [ "default" ]
+          },
+          "overrides" : { },
+          "selectedInstance" : "default"
+        }
+      }
+    },
+    "nWX3FWYElum2GskA3FLOI$$e8sDx3mQCU30YAGtA9Aae" : {
+      "id" : "nWX3FWYElum2GskA3FLOI$$e8sDx3mQCU30YAGtA9Aae",
+      "component" : "Pipeline",
+      "metadata" : {
+        "label" : "customers",
+        "slug" : "customers",
+        "x" : -200,
+        "y" : 20
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "pelgJAPmkKCgE0WjzOJOr$$zZMWEeM5pkfwQfULuGA3t",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "izWE-J5Bveynd4EllieLu$$QAZJKN73f6j4iGXbB4ubo",
+          "slug" : ""
+        } ]
+      },
+      "settings" : {
+        "type" : "Inherited",
+        "alerting" : {
+          "emails" : "",
+          "onStart" : false,
+          "onSuccess" : false,
+          "onFailure" : false
+        }
+      },
+      "properties" : {
+        "pipelineId" : "pipelines/customers",
+        "configurations" : {
+          "schema" : [ ],
+          "instances" : {
+            "future_of_data" : [ "default" ]
+          },
+          "overrides" : { },
+          "selectedInstance" : "default"
+        }
+      }
+    },
+    "-pS7yHnl74iVvl-POPfTD$$3fF1apF8o_CG4N4_O7bCg" : {
+      "id" : "-pS7yHnl74iVvl-POPfTD$$3fF1apF8o_CG4N4_O7bCg",
+      "component" : "Pipeline",
+      "metadata" : {
+        "label" : "orders",
+        "slug" : "orders",
+        "x" : -200,
+        "y" : 240
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "rPnX8yUHDbYSshyws8E4L$$Z_7pMC3VmbmW5HlNVPXZ6",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "B7ZYNQ2qYhpKMiTZMFHGT$$9oTxhtDohSyjTDeMx_lQO",
+          "slug" : ""
+        } ]
+      },
+      "settings" : {
+        "type" : "Inherited",
+        "alerting" : {
+          "emails" : "",
+          "onStart" : false,
+          "onSuccess" : false,
+          "onFailure" : false
+        }
+      },
+      "properties" : {
+        "pipelineId" : "pipelines/orders",
+        "configurations" : {
+          "schema" : [ ],
+          "instances" : {
+            "future_of_data" : [ "default" ]
+          },
+          "overrides" : { },
+          "selectedInstance" : "default"
+        }
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "yzVe7pavx4M7lsDNolI5H",
+    "source" : "nWX3FWYElum2GskA3FLOI$$e8sDx3mQCU30YAGtA9Aae",
+    "target" : "maJ4p9RTP3bZAWgFKS-Eq",
+    "sourcePort" : "izWE-J5Bveynd4EllieLu$$QAZJKN73f6j4iGXbB4ubo",
+    "targetPort" : "in"
+  }, {
+    "id" : "CEkrhvTyRjtMZQf8G9VZS",
+    "source" : "-pS7yHnl74iVvl-POPfTD$$3fF1apF8o_CG4N4_O7bCg",
+    "target" : "maJ4p9RTP3bZAWgFKS-Eq",
+    "sourcePort" : "B7ZYNQ2qYhpKMiTZMFHGT$$9oTxhtDohSyjTDeMx_lQO",
+    "targetPort" : "in"
+  } ]
+}
